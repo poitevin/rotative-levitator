@@ -170,6 +170,25 @@ const fourteenthLine = [
   "a fang is drawn: amoral, canine moon.",
 ];
 
+/*
+  CUSTOM FONT SETUP:
+  To use custom fonts (like Google Fonts), you have two options:
+  
+  1. Add Google Fonts via HTML head (if using in a full HTML page):
+     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+     Then use: style={{fontFamily: "'Crimson Text', serif"}}
+  
+  2. Or import in CSS file:
+     @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+     .custom-font { font-family: 'Crimson Text', serif; }
+     Then use: className="custom-font"
+  
+  Built-in Tailwind font options:
+  - font-sans (system default)
+  - font-serif (Times, etc.)
+  - font-mono (monospace)
+*/
+
 function App() {
   // Initialize state with palindromic indices for each line
   const [currentIndices, setCurrentIndices] = useState(() => {
@@ -240,181 +259,167 @@ function App() {
   ];
 
   return (
-    <div className="brand-container" style={{ minHeight: '100vh', paddingTop: '2rem', paddingBottom: '2rem' }}>
-      {/* Header */}
-      <header className="brand-header">
-        <h1 className="brand-site-title">Ten Million Palindromic Sonnets</h1>
-        <p className="brand-section-title">Interactive Poetry Generator</p>
-        
-        <div className="brand-info-section">
-          <p className="brand-text-center">
-            <strong>Version:</strong> {calculateSonnetIndex(currentIndices).toLocaleString()} of 10,000,000
+    /* 
+      BACKGROUND CUSTOMIZATION:
+      To change background colors, modify the gradient classes below:
+      - Main background: from-stone-900 via-amber-900 to-yellow-900 (sepia gradient)
+      - Change these to any Tailwind color (e.g., from-blue-900, via-indigo-900, to-blue-900)
+      - Or use solid color: bg-stone-900 (replace entire gradient)
+    */
+    <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-900 to-yellow-900 text-white">
+      <div className="container mx-auto px-4 py-2">
+        {/* Header */}
+        <div className="text-center mb-2">
+          <div className="inline-block">
+            {/* 
+              TITLE CUSTOMIZATION:
+              - Font size: text-3xl md:text-4xl (further reduced)
+              - Font weight: font-bold (options: font-light, font-normal, font-semibold, font-bold, font-black)
+              - Colors: from-amber-200 via-yellow-300 to-amber-200 (change to any gradient colors)
+              - Font family: Uses default system fonts, add font-serif, font-mono, or custom font classes
+            */}
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent mb-1 tracking-wider">
+              ROTATIVE LEVITATOR
+            </h1>
+            <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent mb-1"></div>
+            {/* 
+              SUBTITLE CUSTOMIZATION:
+              - Text color: text-amber-200/80 (change amber-200 to any color, /80 is opacity)
+              - Font size: text-sm (further reduced)
+              - Font weight: font-light
+            */}
+            <p className="text-amber-200/80 text-sm font-light tracking-wide">
+              Interactive Palindromic Sonnet Explorer
+            </p>
+          </div>
+        </div>
+
+        {/* Version Info */}
+        <div className="text-center mb-2">
+          <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-amber-100/90 text-xs font-medium border border-white/20">
+            Version {calculateSonnetIndex(currentIndices).toLocaleString()}
+          </span>
+        </div>
+
+        {/* Instructions */}
+        <div className="text-center mb-3">
+          <p className="text-slate-300 text-xs max-w-2xl mx-auto">
+            Click on any line to cycle through variations.
           </p>
         </div>
-        
-        <div className="brand-constraint-note">
-          <strong>Constraint:</strong> Complete sonnets that read identically forwards and backwards, generated through systematic permutation. Click on any line to cycle through variations.
-        </div>
-      </header>
 
-      {/* Sonnet Container */}
-      <div className="brand-card">
-        <div className="brand-poem-text">
-          {/* First Quatrain */}
-          <div className="brand-stanza-break">
-            {allLines.slice(0, 4).map((lineArray, indexWithinStanza) => (
-              <div
-                key={`first-quatrain-${indexWithinStanza}`}
-                onClick={() => cycleLineOption(indexWithinStanza, 0)}
-                className="brand-poem-line"
-                style={{
-                  cursor: 'pointer',
-                  padding: '0.5rem',
-                  borderRadius: 'var(--radius-md)',
-                  transition: 'all var(--transition-base)',
-                  borderLeft: '3px solid transparent',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'var(--light-gray)';
-                  e.target.style.borderLeftColor = 'var(--accent-color)';
-                  e.target.style.transform = 'translateX(0.5rem)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.borderLeftColor = 'transparent';
-                  e.target.style.transform = 'translateX(0)';
-                }}
-              >
-                {lineArray[currentIndices[indexWithinStanza]]}
-              </div>
-            ))}
+        {/* Sonnet Container */}
+        <div className="max-w-4xl mx-auto">
+          {/* 
+            SONNET CONTAINER CUSTOMIZATION:
+            - Background: bg-gradient-to-b from-white/5 to-white/10 (glass effect)
+            - Border: border-white/20 (change white to any color)
+            - For solid background, replace gradient with: bg-slate-800 or bg-white/10
+            - Backdrop blur: backdrop-blur-sm (options: backdrop-blur-none, backdrop-blur, backdrop-blur-lg)
+          */}
+          <div className="bg-gradient-to-b from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-3 md:p-4 border border-white/20 shadow-2xl">
+            
+            {/* 
+              POEM TEXT CUSTOMIZATION:
+              - Font family: Adobe Caslon Pro with fallbacks
+              - Font style: normal (not italic)
+              - Text size: text-sm md:text-base (further reduced)
+              - Very tight line spacing with custom style
+              - Default color: inherits from parent (white from main container)
+              - Hover color: hover:text-red-400 (change red-400 to any color)
+              - Hover border: hover:border-red-400/50 (should match hover text color)
+              - All quatrains and tercets use the same styling pattern
+            */}
+            
+            {/* First Quatrain */}
+            <div className="mb-3">
+              {allLines.slice(0, 4).map((lineArray, indexWithinStanza) => (
+                <p
+                  key={`first-quatrain-${indexWithinStanza}`}
+                  onClick={() => cycleLineOption(indexWithinStanza, 0)}
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
+                >
+                  {lineArray[currentIndices[indexWithinStanza]]}
+                </p>
+              ))}
+            </div>
+
+            {/* Second Quatrain */}
+            <div className="mb-3">
+              {allLines.slice(4, 8).map((lineArray, indexWithinStanza) => (
+                <p
+                  key={`second-quatrain-${indexWithinStanza}`}
+                  onClick={() => cycleLineOption(indexWithinStanza, 1)}
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
+                >
+                  {lineArray[currentIndices[4 + indexWithinStanza]]}
+                </p>
+              ))}
+            </div>
+
+            {/* First Tercet */}
+            <div className="mb-3">
+              {allLines.slice(8, 11).map((lineArray, indexWithinStanza) => (
+                <p
+                  key={`first-tercet-${indexWithinStanza}`}
+                  onClick={() => cycleLineOption(indexWithinStanza, 2)}
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
+                >
+                  {lineArray[currentIndices[8 + indexWithinStanza]]}
+                </p>
+              ))}
+            </div>
+
+            {/* Second Tercet */}
+            <div className="mb-2">
+              {allLines.slice(11, 14).map((lineArray, indexWithinStanza) => (
+                <p
+                  key={`second-tercet-${indexWithinStanza}`}
+                  onClick={() => cycleLineOption(indexWithinStanza, 3)}
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
+                >
+                  {lineArray[currentIndices[11 + indexWithinStanza]]}
+                </p>
+              ))}
+            </div>
+
+            {/* Author Attribution */}
+            <div className="text-right mt-2 mb-1">
+              {/* 
+                AUTHOR TEXT CUSTOMIZATION:
+                - Color: text-amber-200/80 (change amber-200 to any color)
+                - Font size: text-sm (further reduced)
+                - Font weight: font-light (options: font-normal, font-medium, font-semibold)
+                - Font style: italic (remove for normal text)
+              */}
+              <p className="text-amber-200/80 text-sm font-light italic" style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif"}}>
+                – Pedro Poitevin
+              </p>
+            </div>
           </div>
 
-          {/* Second Quatrain */}
-          <div className="brand-stanza-break">
-            {allLines.slice(4, 8).map((lineArray, indexWithinStanza) => (
-              <div
-                key={`second-quatrain-${indexWithinStanza}`}
-                onClick={() => cycleLineOption(indexWithinStanza, 1)}
-                className="brand-poem-line"
-                style={{
-                  cursor: 'pointer',
-                  padding: '0.5rem',
-                  borderRadius: 'var(--radius-md)',
-                  transition: 'all var(--transition-base)',
-                  borderLeft: '3px solid transparent',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'var(--light-gray)';
-                  e.target.style.borderLeftColor = 'var(--accent-color)';
-                  e.target.style.transform = 'translateX(0.5rem)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.borderLeftColor = 'transparent';
-                  e.target.style.transform = 'translateX(0)';
-                }}
+          {/* Generate New Sonnet Button */}
+          <div className="text-center mt-3">
+            <button
+              onClick={newSonnet}
+              className="group relative inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 font-semibold rounded-xl transition-all duration-300 hover:from-amber-400 hover:to-yellow-400 hover:scale-105 hover:shadow-xl hover:shadow-amber-500/25 active:scale-95"
+            >
+              <svg 
+                className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-180" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
               >
-                {lineArray[currentIndices[4 + indexWithinStanza]]}
-              </div>
-            ))}
-          </div>
-
-          {/* First Tercet */}
-          <div className="brand-stanza-break">
-            {allLines.slice(8, 11).map((lineArray, indexWithinStanza) => (
-              <div
-                key={`first-tercet-${indexWithinStanza}`}
-                onClick={() => cycleLineOption(indexWithinStanza, 2)}
-                className="brand-poem-line"
-                style={{
-                  cursor: 'pointer',
-                  padding: '0.5rem',
-                  borderRadius: 'var(--radius-md)',
-                  transition: 'all var(--transition-base)',
-                  borderLeft: '3px solid transparent',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'var(--light-gray)';
-                  e.target.style.borderLeftColor = 'var(--accent-color)';
-                  e.target.style.transform = 'translateX(0.5rem)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.borderLeftColor = 'transparent';
-                  e.target.style.transform = 'translateX(0)';
-                }}
-              >
-                {lineArray[currentIndices[8 + indexWithinStanza]]}
-              </div>
-            ))}
-          </div>
-
-          {/* Second Tercet */}
-          <div style={{ marginBottom: '1rem' }}>
-            {allLines.slice(11, 14).map((lineArray, indexWithinStanza) => (
-              <div
-                key={`second-tercet-${indexWithinStanza}`}
-                onClick={() => cycleLineOption(indexWithinStanza, 3)}
-                className="brand-poem-line"
-                style={{
-                  cursor: 'pointer',
-                  padding: '0.5rem',
-                  borderRadius: 'var(--radius-md)',
-                  transition: 'all var(--transition-base)',
-                  borderLeft: '3px solid transparent',
-                }}
-                onMouseEnter={(e) => {
-                  e.target.style.backgroundColor = 'var(--light-gray)';
-                  e.target.style.borderLeftColor = 'var(--accent-color)';
-                  e.target.style.transform = 'translateX(0.5rem)';
-                }}
-                onMouseLeave={(e) => {
-                  e.target.style.backgroundColor = 'transparent';
-                  e.target.style.borderLeftColor = 'transparent';
-                  e.target.style.transform = 'translateX(0)';
-                }}
-              >
-                {lineArray[currentIndices[11 + indexWithinStanza]]}
-              </div>
-            ))}
-          </div>
-
-          {/* Author Attribution */}
-          <div style={{ textAlign: 'right', marginTop: '2rem', fontStyle: 'italic', color: 'var(--text-muted)' }}>
-            – Pedro Poitevin
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Explore New Palindromic Sonnet
+            </button>
           </div>
         </div>
-      </div>
-
-      {/* Controls */}
-      <div className="brand-card brand-card-compact brand-text-center">
-        <button
-          onClick={newSonnet}
-          className="brand-btn brand-btn-primary brand-btn-large"
-          style={{ marginBottom: '1rem' }}
-        >
-          <span style={{ marginRight: '0.5rem' }}>🔄</span>
-          Generate New Palindromic Sonnet
-        </button>
-        
-        <div className="brand-info-section">
-          <p className="brand-text-small">
-            Each sonnet reads identically forwards and backwards, letter by letter. 
-            This collection contains 10 million unique palindromic sonnets, 
-            paying homage to Raymond Queneau's <em>Cent mille milliards de poèmes</em>.
-          </p>
-        </div>
-      </div>
-
-      {/* Footer with link back to main site */}
-      <div className="brand-text-center" style={{ marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)' }}>
-        <p className="brand-text-muted brand-text-small">
-          Part of the digital poetry collection by{' '}
-          <a href="/" style={{ color: 'var(--accent-color)', textDecoration: 'none' }}>
-            Pedro Poitevin
-          </a>
-        </p>
       </div>
     </div>
   );
