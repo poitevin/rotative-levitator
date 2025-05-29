@@ -1,10 +1,11 @@
 /* =========================================
    Pedro Poitevin Website Brand Styles
+   WITH APP.CSS SPACING LOGIC
    ========================================= */
 
 /* CSS Custom Properties (Variables) */
 :root {
-  /* Colors */
+  /* Colors - matching your website */
   --background-color: #fafafa;
   --text-primary: #1a1a1a;
   --text-secondary: #333;
@@ -14,54 +15,13 @@
   --border-color: #e5e5e5;
   --white: #fff;
   --light-gray: #f8f9fa;
-  --error-color: #dc3545;
-  --success-color: #28a745;
-  --warning-color: #ffc107;
 
-  /* Typography */
+  /* Typography - your website fonts */
   --font-family-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-family-serif: 'Crimson Text', Georgia, 'Times New Roman', serif;
-  
-  /* Font Sizes */
-  --font-size-xs: 0.8rem;
-  --font-size-sm: 0.9rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.1rem;
-  --font-size-xl: 1.2rem;
-  --font-size-2xl: 1.4rem;
-  --font-size-3xl: 1.8rem;
-  --font-size-4xl: 2rem;
-  --font-size-5xl: 2.5rem;
-
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
-  --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4rem;
-
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 4px 12px rgba(0, 122, 204, 0.1);
-  --shadow-accent: 0 0 0 3px rgba(0, 122, 204, 0.1);
 
   /* Transitions */
-  --transition-fast: 0.15s ease;
   --transition-base: 0.3s ease;
-  --transition-slow: 0.5s ease;
-
-  /* Layout */
-  --container-max-width: 900px;
-  --container-padding: 2rem;
-  --poem-container-max-width: 800px;
 }
 
 /* Base Reset */
@@ -71,39 +31,173 @@
   box-sizing: border-box;
 }
 
-/* Base Typography */
 body {
   font-family: var(--font-family-sans);
   background-color: var(--background-color);
   color: var(--text-primary);
   line-height: 1.65;
-  font-size: var(--font-size-base);
+  font-size: 16px;
 }
 
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
+/* Main App Container - EXACT spacing from App.css */
+.app {
+  padding: 20px;
+  font-family: var(--font-family-serif);  /* Using brand serif font instead of EB Garamond */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns content to the left */
+  max-width: 800px;
+  margin: auto;
+  background-color: var(--background-color); /* Brand background instead of image */
+  min-height: 100vh;
+}
+
+/* Title Container - EXACT spacing from App.css */
+.title-container {
+  width: 100%; /* Full width of the container */
+  padding: 0 20px; /* Same horizontal padding as poem text */
+  display: flex;
+  justify-content: flex-start; /* Align title text to the left within this container */
+}
+
+/* Title - EXACT spacing from App.css but brand colors */
+.title {
+  margin-top: 20px;
+  margin-bottom: 1rem;
+  font-size: 2rem;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-md);
+  font-weight: 600;
 }
 
-h1 {
-  font-size: var(--font-size-5xl);
-  line-height: 1.2;
+/* Subtitle for brand consistency */
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+  padding: 0 20px;
 }
 
-h2 {
-  font-size: var(--font-size-3xl);
-  line-height: 1.3;
+/* Sonnet Container - EXACT spacing from App.css */
+.sonnet {
+  font-size: 1.5rem; /* Adjust the font size */
+  line-height: 1.3rem; /* Adjust the line height */
+  padding: 0 20px; /* Horizontal padding to match the title container and button */
+  font-family: var(--font-family-serif); /* Brand serif font */
+  color: var(--text-secondary);
 }
 
-h3 {
-  font-size: var(--font-size-2xl);
-  line-height: 1.4;
+/* Sonnet Paragraphs - EXACT behavior from App.css but brand colors */
+.sonnet p {
+  cursor: pointer;
+  margin: 10px 0; /* Adjust spacing between lines */
+  transition: color var(--transition-base), font-size var(--transition-base), transform 0.1s ease-out;
+  color: var(--text-secondary);
 }
 
-h4 {
-  font-size: var(--font-size-xl);
+.sonnet p:active {
+  transform: scale(1); /* Prevent scaling on touch */
+}
+
+.sonnet p:first-child {
+  margin-top: 20px; /* Increase space above the first line */
+}
+
+/* Hover effect - brand color instead of red */
+.sonnet p:hover {
+  color: var(--accent-color); /* Brand blue instead of red */
+  font-size: 1.3rem; /* Increase font size on hover */
+  cursor: pointer; /* Change cursor to indicate clickable area */
+}
+
+/* Stanza Break - EXACT spacing from App.css */
+.stanza-break {
+  height: 20px; /* Adds a visual break between stanzas */
+}
+
+/* Button - EXACT spacing from App.css but brand styling */
+button {
+  font-family: var(--font-family-serif); /* Brand serif font */
+  font-size: 1rem;
+  background-color: var(--white);
+  border: 2px solid var(--accent-color); /* Brand color border */
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 10px; /* Provides padding inside the button */
+  margin-top: 10px; /* Space above the button */
+  margin-left: 16px; /* Adjust this value to align the button's border with the poem's text */
+  color: var(--accent-color);
+  transition: all var(--transition-base);
+}
+
+button:hover {
+  background-color: var(--accent-color);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+/* Sonnet Index - EXACT spacing from App.css */
+.sonnet-index {
+  font-size: medium;
+  padding: 0 100px;
+  color: var(--text-muted);
+}
+
+/* Author - EXACT spacing from App.css */
+.author {
+  margin-top: 10px; /* Space above the author's name */
+  margin-bottom: 5px; /* Increase space above the button */
+  padding: 0 20px;
+  font-size: 1.5rem; /* Adjust the font size as needed */
+  font-style: italic;
+  text-align: left; /* Align author's name to the left */
+  color: var(--text-muted);
+}
+
+/* Brand Info Sections for additional content */
+.brand-info-section {
+  background: var(--light-gray);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 20px; /* Match the 20px side padding pattern */
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.brand-constraint-note {
+  background: var(--light-gray);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--accent-color);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1rem 20px; /* Match the 20px side padding pattern */
+}
+
+.brand-constraint-note strong {
+  color: var(--text-secondary);
+  font-style: normal;
+}
+
+/* Utility classes that respect the spacing pattern */
+.brand-text-center {
+  text-align: center;
+}
+
+.brand-text-muted {
+  color: var(--text-muted);
+}
+
+.brand-margin-sides {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.brand-padding-sides {
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* Links */
@@ -117,309 +211,31 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Layout Components */
-.brand-container {
-  max-width: var(--container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-.brand-poem-container {
-  max-width: var(--poem-container-max-width);
-  margin: 0 auto;
-  padding: 0 var(--container-padding);
-}
-
-/* Cards & Containers */
-.brand-card {
-  background: var(--white);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-2xl);
-  margin: var(--spacing-xl) 0;
-  transition: all var(--transition-base);
-}
-
-.brand-card:hover {
-  border-color: var(--accent-color);
-  box-shadow: var(--shadow-lg);
-}
-
-.brand-card-compact {
-  padding: var(--spacing-lg);
-}
-
-/* Buttons */
-.brand-btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  font-size: var(--font-size-base);
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  font-family: inherit;
-}
-
-.brand-btn-primary {
-  background: var(--accent-color);
-  color: var(--white);
-}
-
-.brand-btn-primary:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-  text-decoration: none;
-}
-
-.brand-btn-secondary {
-  background: transparent;
-  color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-}
-
-.brand-btn-secondary:hover {
-  background: var(--accent-color);
-  color: var(--white);
-  text-decoration: none;
-}
-
-.brand-btn-small {
-  padding: 0.5rem 1rem;
-  font-size: var(--font-size-sm);
-}
-
-.brand-btn-large {
-  padding: 1rem 2rem;
-  font-size: var(--font-size-lg);
-}
-
-/* Form Elements */
-.brand-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-base);
-  background: var(--white);
-  color: var(--text-primary);
-  font-family: inherit;
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.brand-input:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: var(--shadow-accent);
-}
-
-.brand-input::placeholder {
-  color: var(--text-muted);
-}
-
-.brand-select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-base);
-  background: var(--white);
-  color: var(--text-primary);
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.brand-select:focus {
-  outline: none;
-  border-color: var(--accent-color);
-  box-shadow: var(--shadow-accent);
-}
-
-/* Poetry-Specific Styles */
-.brand-poem-text {
-  font-family: var(--font-family-serif);
-  font-size: var(--font-size-xl);
-  line-height: 1.4;
-  color: var(--text-secondary);
-  text-align: left;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.brand-poem-line {
-  margin-bottom: 0.2rem;
-}
-
-.brand-stanza-break {
-  margin-bottom: var(--spacing-lg);
-}
-
-.brand-poem-title {
-  font-family: var(--font-family-serif);
-  font-size: var(--font-size-4xl);
-  font-weight: 400;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-sm);
-  line-height: 1.2;
-  text-align: center;
-}
-
-/* Info & Status Sections */
-.brand-info-section {
-  background: var(--light-gray);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  margin: var(--spacing-md) 0;
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-}
-
-.brand-constraint-note {
-  background: var(--light-gray);
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--accent-color);
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-  font-style: italic;
-  margin: var(--spacing-md) 0;
-}
-
-.brand-constraint-note strong {
-  color: var(--text-secondary);
-  font-style: normal;
-}
-
-/* Header Styles */
-.brand-header {
-  padding: var(--spacing-2xl) 0 var(--spacing-xl);
-  border-bottom: 1px solid var(--border-color);
-  text-align: center;
-}
-
-.brand-site-title {
-  font-size: var(--font-size-5xl);
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
-}
-
-.brand-section-title {
-  font-size: var(--font-size-xl);
-  color: var(--text-muted);
-  font-style: italic;
-  margin-bottom: var(--spacing-xl);
-}
-
-/* Navigation */
-.brand-nav {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-.brand-nav-link {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color var(--transition-base);
-}
-
-.brand-nav-link:hover,
-.brand-nav-link.active {
-  color: var(--accent-color);
-  text-decoration: none;
-}
-
-/* Utility Classes */
-.brand-text-center {
-  text-align: center;
-}
-
-.brand-text-muted {
-  color: var(--text-muted);
-}
-
-.brand-text-small {
-  font-size: var(--font-size-sm);
-}
-
-.brand-margin-bottom {
-  margin-bottom: var(--spacing-md);
-}
-
-.brand-margin-top {
-  margin-top: var(--spacing-md);
-}
-
-.brand-padding {
-  padding: var(--spacing-md);
-}
-
-/* Loading & States */
-.brand-loading {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 3px solid var(--border-color);
-  border-radius: 50%;
-  border-top-color: var(--accent-color);
-  animation: brand-spin 1s ease-in-out infinite;
-}
-
-@keyframes brand-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.brand-error {
-  color: var(--error-color);
-  background: rgba(220, 53, 69, 0.1);
-  border: 1px solid rgba(220, 53, 69, 0.2);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
-  margin: var(--spacing-md) 0;
-}
-
-.brand-success {
-  color: var(--success-color);
-  background: rgba(40, 167, 69, 0.1);
-  border: 1px solid rgba(40, 167, 69, 0.2);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
-  margin: var(--spacing-md) 0;
-}
-
-/* Responsive Design */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  :root {
-    --container-padding: 1rem;
+  .app {
+    padding: 15px;
   }
-
-  .brand-site-title {
-    font-size: var(--font-size-4xl);
+  
+  .title-container {
+    padding: 0 15px;
   }
-
-  .brand-nav {
-    gap: var(--spacing-md);
+  
+  .sonnet {
+    padding: 0 15px;
+    font-size: 1.3rem;
   }
-
-  .brand-card {
-    padding: var(--spacing-lg);
+  
+  .author {
+    padding: 0 15px;
   }
-
-  .brand-poem-text {
-    font-size: var(--font-size-lg);
+  
+  .brand-info-section,
+  .brand-constraint-note {
+    margin: 1rem 15px;
   }
-
-  .brand-btn {
-    width: 100%;
-    margin-bottom: var(--spacing-sm);
+  
+  button {
+    margin-left: 11px; /* Adjust for smaller padding */
   }
 }
