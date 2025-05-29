@@ -289,7 +289,7 @@ function App() {
               - Font weight: font-light
             */}
             <p className="text-gray-600 text-sm font-light tracking-wide">
-              Interactive Poetry Explorer
+              Interactive Explorer
             </p>
           </div>
         </div>
