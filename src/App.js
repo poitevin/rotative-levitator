@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import './brand.css';
 
 // Example arrays for sonnet lines (add all lines similarly)
 const firstLine = [
