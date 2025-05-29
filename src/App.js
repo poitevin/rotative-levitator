@@ -262,11 +262,11 @@ function App() {
     /* 
       BACKGROUND CUSTOMIZATION:
       To change background colors, modify the gradient classes below:
-      - Main background: from-stone-900 via-amber-900 to-yellow-900 (sepia gradient)
+      - Main background: bg-gray-50 (clean white/light background)
       - Change these to any Tailwind color (e.g., from-blue-900, via-indigo-900, to-blue-900)
-      - Or use solid color: bg-stone-900 (replace entire gradient)
+      - Or use solid color: bg-white (replace entire gradient)
     */
-    <div className="min-h-screen bg-gradient-to-br from-stone-900 via-amber-900 to-yellow-900 text-white">
+    <div className="min-h-screen bg-gray-50 text-gray-900">
       <div className="container mx-auto px-4 py-2">
         {/* Header */}
         <div className="text-center mb-2">
@@ -275,35 +275,35 @@ function App() {
               TITLE CUSTOMIZATION:
               - Font size: text-3xl md:text-4xl (further reduced)
               - Font weight: font-bold (options: font-light, font-normal, font-semibold, font-bold, font-black)
-              - Colors: from-amber-200 via-yellow-300 to-amber-200 (change to any gradient colors)
+              - Colors: from-blue-600 via-purple-600 to-blue-600 (change to any gradient colors)
               - Font family: Uses default system fonts, add font-serif, font-mono, or custom font classes
             */}
-            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent mb-1 tracking-wider">
-              ROTATIVE LEVITATOR
+            <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent mb-1 tracking-wider">
+              Rotative Levitator
             </h1>
-            <div className="h-px bg-gradient-to-r from-transparent via-amber-300 to-transparent mb-1"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent mb-1"></div>
             {/* 
               SUBTITLE CUSTOMIZATION:
-              - Text color: text-amber-200/80 (change amber-200 to any color, /80 is opacity)
+              - Text color: text-gray-600 (change to any color)
               - Font size: text-sm (further reduced)
               - Font weight: font-light
             */}
-            <p className="text-amber-200/80 text-sm font-light tracking-wide">
-              Interactive Palindromic Sonnet Explorer
+            <p className="text-gray-600 text-sm font-light tracking-wide">
+              Interactive Poetry Explorer
             </p>
           </div>
         </div>
 
         {/* Version Info */}
         <div className="text-center mb-2">
-          <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-amber-100/90 text-xs font-medium border border-white/20">
-            Version {calculateSonnetIndex(currentIndices).toLocaleString()}
+          <span className="inline-block px-3 py-1 bg-gray-200 rounded-full text-gray-700 text-xs font-medium border border-gray-300">
+            Version {calculateSonnetIndex(currentIndices).toLocaleString()} of 10,000,000
           </span>
         </div>
 
         {/* Instructions */}
         <div className="text-center mb-3">
-          <p className="text-slate-300 text-xs max-w-2xl mx-auto">
+          <p className="text-gray-500 text-xs max-w-2xl mx-auto">
             Click on any line to cycle through variations.
           </p>
         </div>
@@ -312,12 +312,11 @@ function App() {
         <div className="max-w-4xl mx-auto">
           {/* 
             SONNET CONTAINER CUSTOMIZATION:
-            - Background: bg-gradient-to-b from-white/5 to-white/10 (glass effect)
-            - Border: border-white/20 (change white to any color)
-            - For solid background, replace gradient with: bg-slate-800 or bg-white/10
-            - Backdrop blur: backdrop-blur-sm (options: backdrop-blur-none, backdrop-blur, backdrop-blur-lg)
+            - Background: bg-white (clean white background)
+            - Border: border-gray-200 (light gray border)
+            - Shadow: shadow-lg (subtle shadow)
           */}
-          <div className="bg-gradient-to-b from-white/5 to-white/10 backdrop-blur-sm rounded-2xl p-3 md:p-4 border border-white/20 shadow-2xl">
+          <div className="bg-white rounded-2xl p-3 md:p-4 border border-gray-200 shadow-lg">
             
             {/* 
               POEM TEXT CUSTOMIZATION:
@@ -325,19 +324,19 @@ function App() {
               - Font style: normal (not italic)
               - Text size: text-sm md:text-base (further reduced)
               - Very tight line spacing with custom style
-              - Default color: inherits from parent (white from main container)
-              - Hover color: hover:text-red-400 (change red-400 to any color)
-              - Hover border: hover:border-red-400/50 (should match hover text color)
+              - Default color: text-gray-900 (dark text on light background)
+              - Hover color: hover:text-red-600 (red for visibility on light background)
+              - Hover border: hover:border-red-500/50 (should match hover text color)
               - All quatrains and tercets use the same styling pattern
             */}
             
             {/* First Quatrain */}
-            <div className="mb-3">
+            <div className="mb-4 pb-2 border-b border-gray-100">
               {allLines.slice(0, 4).map((lineArray, indexWithinStanza) => (
                 <p
                   key={`first-quatrain-${indexWithinStanza}`}
                   onClick={() => cycleLineOption(indexWithinStanza, 0)}
-                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-600 hover:translate-x-2 hover:bg-gray-50 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-500/50"
                   style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
                 >
                   {lineArray[currentIndices[indexWithinStanza]]}
@@ -346,12 +345,12 @@ function App() {
             </div>
 
             {/* Second Quatrain */}
-            <div className="mb-3">
+            <div className="mb-4 pb-2 border-b border-gray-100">
               {allLines.slice(4, 8).map((lineArray, indexWithinStanza) => (
                 <p
                   key={`second-quatrain-${indexWithinStanza}`}
                   onClick={() => cycleLineOption(indexWithinStanza, 1)}
-                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-600 hover:translate-x-2 hover:bg-gray-50 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-500/50"
                   style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
                 >
                   {lineArray[currentIndices[4 + indexWithinStanza]]}
@@ -360,12 +359,12 @@ function App() {
             </div>
 
             {/* First Tercet */}
-            <div className="mb-3">
+            <div className="mb-4 pb-2 border-b border-gray-100">
               {allLines.slice(8, 11).map((lineArray, indexWithinStanza) => (
                 <p
                   key={`first-tercet-${indexWithinStanza}`}
                   onClick={() => cycleLineOption(indexWithinStanza, 2)}
-                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-600 hover:translate-x-2 hover:bg-gray-50 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-500/50"
                   style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
                 >
                   {lineArray[currentIndices[8 + indexWithinStanza]]}
@@ -379,7 +378,7 @@ function App() {
                 <p
                   key={`second-tercet-${indexWithinStanza}`}
                   onClick={() => cycleLineOption(indexWithinStanza, 3)}
-                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-400 hover:translate-x-2 hover:bg-white/5 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-400/50"
+                  className="text-sm md:text-base mb-0 cursor-pointer transition-all duration-300 hover:text-red-600 hover:translate-x-2 hover:bg-gray-50 rounded-lg px-3 py-0.5 border-l-2 border-transparent hover:border-red-500/50"
                   style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif", lineHeight: '1.1'}}
                 >
                   {lineArray[currentIndices[11 + indexWithinStanza]]}
@@ -391,12 +390,12 @@ function App() {
             <div className="text-right mt-2 mb-1">
               {/* 
                 AUTHOR TEXT CUSTOMIZATION:
-                - Color: text-amber-200/80 (change amber-200 to any color)
+                - Color: text-gray-600 (gray text on light background)
                 - Font size: text-sm (further reduced)
                 - Font weight: font-light (options: font-normal, font-medium, font-semibold)
                 - Font style: italic (remove for normal text)
               */}
-              <p className="text-amber-200/80 text-sm font-light italic" style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif"}}>
+              <p className="text-gray-600 text-sm font-light italic" style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif"}}>
                 – Pedro Poitevin
               </p>
             </div>
@@ -406,7 +405,7 @@ function App() {
           <div className="text-center mt-3">
             <button
               onClick={newSonnet}
-              className="group relative inline-flex items-center px-5 py-2 bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-900 font-semibold rounded-xl transition-all duration-300 hover:from-amber-400 hover:to-yellow-400 hover:scale-105 hover:shadow-xl hover:shadow-amber-500/25 active:scale-95"
+              className="group relative inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-400 hover:to-purple-400 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 active:scale-95"
             >
               <svg 
                 className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-180" 
