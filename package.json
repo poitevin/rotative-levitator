@@ -2,14 +2,19 @@
   "name": "rotative-levitator",
   "version": "1.0.0",
   "description": "Ten Million Palindromic Sonnets - Interactive Explorer",
-  "keywords": ["poetry", "palindromes", "sonnets", "interactive"],
+  "keywords": [
+    "poetry",
+    "palindromes",
+    "sonnets",
+    "interactive"
+  ],
   "main": "src/index.js",
   "homepage": "https://poitevin.github.io/rotative-levitator",
   "dependencies": {
+    "lucide-react": "0.454.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-scripts": "^5.0.0",
-    "lucide-react": "0.454.0"
+    "react-scripts": "^5.0.0"
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
