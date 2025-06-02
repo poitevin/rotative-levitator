@@ -352,7 +352,7 @@ const appConfigs = {
     versionText: "Version",
     totalVersions: "10,000,000",
     instructions: "Click on any line to cycle through variations.",
-    buttonText: "Explore New Palindromic Sonnet",
+    buttonText: "Random Sonnet",
     author: "– Pedro Poitevin",
     lines: englishLines
   },
@@ -362,7 +362,7 @@ const appConfigs = {
     versionText: "Versión",
     totalVersions: "10.000.000",
     instructions: "Haz clic en cualquier línea para alternar entre variaciones.",
-    buttonText: "Explorar Nuevo Soneto Palindrómico",
+    buttonText: "Soneto Aleatorio",
     author: "– Pedro Poitevin",
     lines: spanishLines
   }
@@ -538,14 +538,15 @@ function App() {
             </div>
           </div>
 
-          {/* Generate New Sonnet Button */}
-          <div className="text-center mt-3">
+          {/* Generate New Sonnet Button - Subtle and Refined */}
+          <div className="text-center mt-4">
             <button
               onClick={newSonnet}
-              className="group relative inline-flex items-center px-5 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl transition-all duration-300 hover:from-blue-400 hover:to-purple-400 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/25 active:scale-95"
+              className="inline-flex items-center px-4 py-2 text-sm text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-800 hover:border-gray-400 transition-all duration-200 shadow-sm hover:shadow-md"
+              style={{fontFamily: "'Adobe Caslon Pro', 'Crimson Text', 'EB Garamond', serif"}}
             >
               <svg 
-                className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:rotate-180" 
+                className="w-3 h-3 mr-2 opacity-60" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
