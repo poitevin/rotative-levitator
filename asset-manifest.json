@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/rotative-levitator/static/css/main.62d8e36d.css",
-    "main.js": "/rotative-levitator/static/js/main.7231ad71.js",
+    "main.js": "/rotative-levitator/static/js/main.d93c8f82.js",
     "index.html": "/rotative-levitator/index.html",
     "main.62d8e36d.css.map": "/rotative-levitator/static/css/main.62d8e36d.css.map",
-    "main.7231ad71.js.map": "/rotative-levitator/static/js/main.7231ad71.js.map"
+    "main.d93c8f82.js.map": "/rotative-levitator/static/js/main.d93c8f82.js.map"
   },
   "entrypoints": [
     "static/css/main.62d8e36d.css",
-    "static/js/main.7231ad71.js"
+    "static/js/main.d93c8f82.js"
   ]
 }
