@@ -194,7 +194,7 @@ const spanishLines = {
     "y a modo sed, a mora, a leve rola,",
     "y a modosita, a birra, a leve rola,",
     "y a modosita, a diva, leve rola,",
-    "y a modo sedación, a rap, a la ola,",
+    "y a modo sedación, a rap, a sola,",
     "y a modoso mocete leve rola,",
     "y a modo sodomita y a más ola,",
   ],
@@ -327,7 +327,7 @@ const spanishLines = {
     "falo, revela arriba a ti Sodoma,",
     "falo, revela vida a ti Sodoma,",
     "falos a paranoica de Sodoma,",
-    "falo, revélte como Sodoma,",
+    "falo, revélete como Sodoma,",
     "falos, ama, y a ti, modo Sodoma,",
   ],
   fourteenthLine: [
