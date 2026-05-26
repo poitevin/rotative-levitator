@@ -113,7 +113,7 @@ const englishLines = {
   tenthLine: [
     "a levitator dial's same rock core.",
     "a levitator dial's pale rock core.",
-    "a levitator dial, dope rock core.",
+    "a levitator dial's dope rock core.",
     "a levitator dial's done rock core.",
     "a levitator dial, line, rock core.",
     "a levitator dial made rock core.",
@@ -193,7 +193,7 @@ const spanishLines = {
     "y a modo sed, a birra, a leve rola,",
     "y a modo sed, a mora, a leve rola,",
     "y a modosita, a birra, a leve rola,",
-    "y a modosita, a diva, a leve rola,",
+    "y a modosita, a diva, leve rola,",
     "y a modo sedación, a rap, a la ola,",
     "y a modoso mocete leve rola,",
     "y a modo sodomita y a más ola,",
