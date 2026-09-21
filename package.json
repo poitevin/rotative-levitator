@@ -1,14 +1,14 @@
 {
   "name": "rotative-levitator",
   "version": "1.0.0",
-  "description": "Ten Million Palindromic Sonnets - Interactive Explorer",
+  "description": "Palindromic sonnets by Pedro Poitevin \u2014 a bilingual reading edition",
   "keywords": [
     "poetry",
     "palindromes",
     "sonnets",
     "interactive"
   ],
-  "main": "src/index.js",
+  "main": "reader/sonnets.mjs",
   "homepage": "https://poitevin.github.io/rotative-levitator",
   "dependencies": {
     "lucide-react": "0.454.0",
@@ -20,12 +20,15 @@
     "gh-pages": "^5.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/sonnets.test.mjs",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "legacy:start": "react-scripts start",
+    "legacy:build": "react-scripts build",
+    "legacy:test": "react-scripts test --env=jsdom"
   },
   "browserslist": [
     ">0.2%",
