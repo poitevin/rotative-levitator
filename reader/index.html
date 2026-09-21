@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Palindromic sonnets by Pedro Poitevin: hand-composed lines and variations combined in the manner of Raymond Queneau.">
+  <link rel="canonical" href="https://pedropoitevin.com/rotative-levitator/">
+  <meta name="theme-color" content="#f8f5f0">
+  <title>Rotative Levitator — Pedro Poitevin</title>
+  <link rel="stylesheet" href="./lectura.css">
+  <script type="module" src="./lectura.js"></script>
+</head>
+<body>
+  <main class="edition">
+    <header class="masthead">
+      <p class="collection" id="collection">Ten million palindromic sonnets</p>
+      <h1 id="title">Rotative Levitator</h1>
+      <p class="byline">Pedro Poitevin</p>
+    </header>
+
+    <article class="poem" id="poem" aria-labelledby="title" aria-describedby="line-instructions"></article>
+    <p class="sr-only" id="line-instructions"></p>
+
+    <nav class="folio" id="folio" aria-label="Read another sonnet">
+      <button type="button" id="previous" aria-label="Previous sonnet">←</button>
+      <span id="number"></span>
+      <button type="button" id="next" aria-label="Next sonnet">→</button>
+    </nav>
+
+    <p class="reading-invitation" id="invitation"></p>
+    <nav class="reading-tools" id="tools" aria-label="Reading options">
+      <button id="random" type="button"></button>
+      <button id="goto-toggle" type="button" aria-expanded="false" aria-controls="goto-panel"></button>
+      <button id="animation" type="button" aria-pressed="false"></button>
+      <button id="about-toggle" type="button" aria-expanded="false" aria-controls="about-panel"></button>
+    </nav>
+
+    <form id="goto-panel" class="goto-panel" hidden novalidate>
+      <label for="sonnet-number" id="input-label"></label>
+      <input id="sonnet-number" name="sonnet" inputmode="numeric" autocomplete="off" aria-describedby="number-hint number-error">
+      <button type="submit" id="open"></button>
+      <p class="hint" id="number-hint"></p>
+      <p class="error" id="number-error" role="alert"></p>
+    </form>
+
+    <aside id="about-panel" class="about-panel" hidden>
+      <p id="about-construction"></p>
+      <p id="about-reading"></p>
+      <p id="about-controls" class="hint"></p>
+      <div class="landmarks">
+        <button type="button" id="first"></button>
+        <button type="button" id="last"></button>
+      </div>
+      <a id="other-language" href="?lang=es" lang="es">Leer en español</a>
+    </aside>
+    <p class="sr-only" id="announcement" aria-live="polite" aria-atomic="true"></p>
+  </main>
+</body>
+</html>
