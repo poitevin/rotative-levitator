@@ -1,0 +1,27 @@
+name: Verify Lean certificates
+
+on: [push, pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            lean
+            reader
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - run: node lean/verify-source.mjs
+      - uses: leanprover/lean-action@v1
+        with:
+          lake-package-directory: lean
+          build: 'true'
+          build-args: '--wfail'
+          leanchecker: 'true'
+          leanchecker-args: '--fresh Sonetos'

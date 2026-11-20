@@ -18,6 +18,11 @@ original ten-million-sonnet numbering is preserved in each language.
 
 Use `?lang=es&n=1` or `?lang=en&n=1` to select a language and sonnet.
 
+## Lean certificates
+
+The Lean project proves palindrome structure and distinctness as written
+for all ten million sonnets in each collection. [Reproduce the proofs](lean/)
+
 ## Development
 
 The current application lives in `reader/`. It uses browser-native JavaScript
