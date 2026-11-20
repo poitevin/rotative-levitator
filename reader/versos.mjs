@@ -253,7 +253,7 @@ export const repertoires = {
       "a otro le doy y ya. ¿Será más ágil?",
       "a otro le doy y ya. ¿Será más ágil?",
       "a otro le doy y -¡Alá!- ¿será más ágil?",
-      "a otro le doy y -¡Alá!- ¿será más ágil?"
+      "a otro le doy, yo sé. ¿Será más ágil?"
     ],
     [
       "- ¿Ligás a mares? - ¿Yo? ¡Sí, sí, del orto!",
@@ -265,7 +265,7 @@ export const repertoires = {
       "- ¿Ligás a mares? - Ay, ¿y yo? ¡Del orto!",
       "- ¿Ligás a mares, ay?- ¿Y yo? ¡Del orto!",
       "- ¿Ligás a mares, ala? - ¿Y yo? ¡Del orto!",
-      "- ¿Ligás a mares, ala? - ¿Y yo? ¡Del orto!"
+      "¿Ligás a mares? ¡Eso! – ¿Y yo? ¡Del orto!"
     ],
     [
       "A otro cortos asir propone: - Dele,",

@@ -30,6 +30,19 @@ test('representative combinations retain their palindrome in both languages', ()
   }
 });
 
+test('each complementary pair has ten variants distinct as written', () => {
+  for (const language of ['es', 'en']) {
+    for (let line = 0; line < 7; line++) {
+      const pairs = new Set();
+      for (let digit = 0; digit < 10; digit++) {
+        const sonnet = linesFor(language, 1 + digit * 10 ** line);
+        pairs.add(JSON.stringify([sonnet[line], sonnet[13 - line]]));
+      }
+      assert.equal(pairs.size, 10, `${language}, lines ${line + 1} and ${14 - line}`);
+    }
+  }
+});
+
 test('indices outside the edition are rejected', () => {
   for (const n of [0, TOTAL + 1, 1.5, NaN]) assert.throws(() => indicesFor(n), RangeError);
 });
